@@ -47,6 +47,10 @@ function featured_case_meta_box_callback($post)
     $settlement_amount = get_post_meta($post->ID, 'settlement_amount', true);
 ?>
 
+    // Campo nonce para segurança
+    wp_nonce_field('featured_case_nonce', 'featured_case_nonce_field');
+
+    ?>
     <p>
         <label for="case_type"><strong>Case Type</strong></label><br>
         <input
@@ -68,6 +72,7 @@ function featured_case_meta_box_callback($post)
     </p>
 
 <?php
+
 }
 
 /**
